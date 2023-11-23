@@ -16,7 +16,7 @@ public class CdMd5Calculate {
     private static String cdDisk = "d:\\a";
 
     //是否下潜查找指定后缀文件，默认下潜
-    private static Boolean isDive = false;
+    private static Boolean isDive = true;
 
     private static Map<String, String> cdFilePahAndMd5StrMap = new HashMap<>();
 
