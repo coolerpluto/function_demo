@@ -97,7 +97,7 @@ public class CdMd5Calculate {
         try {
             index = fileContent.indexOf(md5InFileProvided);
         }catch (NullPointerException exception){
-            System.out.println("提供的md5文件间隔和md5InFileProvided不对");
+            System.out.println(md5SuffixFilePath+"提供的md5文件间隔和md5InFileProvided不对");
             System.exit(1);
         }
         if (index > -1) {
