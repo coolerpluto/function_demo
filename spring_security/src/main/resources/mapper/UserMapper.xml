@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fan.mapper.UserMapper">
+    <resultMap id="userInfo" type="loginInfo">
+        <id column="id" property="id"/>
+        <result column="username" property="userName"/>
+        <result column="password" property="password"/>
+    </resultMap>
+    <select id="getByUserName" parameterType="string" resultMap="userInfo">
+        select * from user_info where username=#{userName}
+    </select>
+</mapper>
