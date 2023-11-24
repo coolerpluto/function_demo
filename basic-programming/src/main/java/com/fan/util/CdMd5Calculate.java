@@ -16,7 +16,7 @@ public class CdMd5Calculate {
     private static String cdDisk = "d:\\a";
 
     //是否下潜查找指定后缀文件，默认下潜
-    private static Boolean isDive = false;
+    private static Boolean isDive = true;
 
     private static Map<String, String> cdFilePahAndMd5StrMap = new HashMap<>();
 
@@ -42,6 +42,7 @@ public class CdMd5Calculate {
                             System.out.println("此文件md5一致"+entry.getKey());
                         }
                     }
+                    System.out.println("=====================此光盘已计算完毕，请拿出=====================");
                     cdShouldIn = false;
                     cdShouldOut = true;
                 }
@@ -97,7 +98,7 @@ public class CdMd5Calculate {
         try {
             index = fileContent.indexOf(md5InFileProvided);
         }catch (NullPointerException exception){
-            System.out.println("提供的md5文件间隔和md5InFileProvided不对");
+            System.out.println(md5SuffixFilePath+"提供的md5文件间隔和md5InFileProvided不对");
             System.exit(1);
         }
         if (index > -1) {
