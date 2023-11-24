@@ -15,6 +15,9 @@ public class CdMd5Calculate {
 
     private static String cdDisk = "d:\\a";
 
+    //是否安装了弹出cd盘的命令工具，默认没安装
+    private static Boolean nircmdInstalled = false;
+
     //是否下潜查找指定后缀文件，默认下潜
     private static Boolean isDive = true;
 
@@ -41,6 +44,9 @@ public class CdMd5Calculate {
                         }else {
                             System.out.println("此文件md5一致"+entry.getKey());
                         }
+                    }
+                    if (nircmdInstalled){
+                        ejectExternalCD();
                     }
                     System.out.println("=====================此光盘已计算完毕，请拿出=====================");
                     cdShouldIn = false;
@@ -136,6 +142,28 @@ public class CdMd5Calculate {
         } catch (Exception ex) {
             System.out.println("Error calculating MD5 hash for file named '" + fileAbsolutePath + "'");
             return null;
+        }
+    }
+
+    //弹出cd盘需要安装第三方命令工具：nircmd
+    public static void ejectExternalCD() {
+        try {
+            String os = System.getProperty("os.name").toLowerCase();
+
+            // 检查操作系统类型
+            if (os.contains("win")) {
+                // 执行弹出移动外置光驱命令
+                String command = "nircmd cdrom open "+cdDisk; // 外置光驱的盘符，根据实际情况修改
+                Process process = Runtime.getRuntime().exec(command);
+
+                // 等待一段时间，然后杀死进程
+                Thread.sleep(2000);
+                process.destroy();
+            } else {
+                System.out.println("不支持的操作系统");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
