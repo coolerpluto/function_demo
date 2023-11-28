@@ -7,12 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="pageHelperTest" />
         <module name="common" />
+        <module name="synch_demo1" />
+        <module name="synch_demo" />
+        <module name="pageHelperTest" />
         <module name="spring_security" />
-        <module name="spring_redis" />
         <module name="basic-programming" />
+        <module name="spring_redis" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="synch_demo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
