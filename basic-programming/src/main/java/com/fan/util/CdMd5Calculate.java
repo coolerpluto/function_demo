@@ -13,10 +13,10 @@ public class CdMd5Calculate {
 
     private static String md5InFileProvided = " ";
 
-    private static String cdDisk = "d:\\a";
+    private static String cdDisk = "f:\\";
 
     //是否安装了弹出cd盘的命令工具，默认没安装
-    private static Boolean nircmdInstalled = false;
+    private static Boolean nircmdInstalled = true;
 
     //是否下潜查找指定后缀文件，默认下潜
     private static Boolean isDive = true;
@@ -37,18 +37,22 @@ public class CdMd5Calculate {
                     System.out.println("=====================CD盘已放入=====================");
                     Map<String, String> filePathWithAllSuffix = getFilePathWithAllSuffix(cdFileSuffix, cdDisk, cdFilePahAndMd5StrMap,isDive);
                     for (Map.Entry<String, String> entry : filePathWithAllSuffix.entrySet()){
+                        long startTime = System.currentTimeMillis();
                         String md5 = calculateMd5(entry.getKey());
                         String md5Provided = getMd5InMd5SuffixFile(entry.getValue());
+                        long endTime = System.currentTimeMillis();
+                        long elapsedTime = endTime - startTime;
+                        System.out.println("计算时间："+ elapsedTime/1000 + "秒");
                         if (!md5.equals(md5Provided)){
                             System.out.println("此文件md5不一致"+entry.getKey());
                         }else {
-                            System.out.println("此文件md5一致"+entry.getKey());
+                            System.out.println("此文件md5一致");
                         }
                     }
                     if (nircmdInstalled){
                         ejectExternalCD();
                     }
-                    System.out.println("=====================此光盘已计算完毕，请拿出=====================");
+//                    System.out.println("=====================此光盘已计算完毕，已弹出=====================");
                     cdShouldIn = false;
                     cdShouldOut = true;
                 }
@@ -57,7 +61,7 @@ public class CdMd5Calculate {
                 if (cdShouldOut){
                     cdShouldIn = true;
                     cdShouldOut = false;
-                    System.out.println("=====================CD盘已拿出，请放入CD盘=====================");
+//                    System.out.println("=====================CD盘已拿出，请放入CD盘=====================");
                 }
             }
         }
