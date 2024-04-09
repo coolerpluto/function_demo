@@ -119,6 +119,7 @@ enum SynchList {
             "  \"task\": \"refr\",\n" +
             "  \"start_immediate\": true\n" +
             "}","CRM"),
+
     OACRMCRM("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/oacrmcrm/refresh","{\n" +
             "  \"source_loc\": \"oacrmsource2\",\n" +
             "  \"target_loc\": \"oacrmtarget2\",\n" +
@@ -133,20 +134,45 @@ enum SynchList {
             "  \"task\": \"refr\",\n" +
             "  \"start_immediate\": true\n" +
             "}","OACRM"),
-    JZPTPROD("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzptprod/refresh","{\n" +
-            "  \"source_loc\": \"jzptprod\",\n" +
-            "  \"target_loc\": \"jzptprodtar\",\n" +
+    jzpttocrmdev("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzpttocrmd/refresh",
+            "{\n" +
+                    "  \"source_loc\": \"jzptcrm1dev\",\n" +
+                    "  \"target_loc\": \"jzptcrm2dev\",\n" +
+                    "  \"granularity\": \"bulk\",\n" +
+                    "  \"task\": \"refr\",\n" +
+                    "  \"start_immediate\": true\n" +
+                    "}","jzpttocrmdev"),
+
+    jzpttocrmprod("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzpttocrmp/refresh",
+            "{\n" +
+                    "  \"source_loc\": \"jzptcrm1prod\",\n" +
+                    "  \"target_loc\": \"jzptcrm2prod\",\n" +
+                    "  \"granularity\": \"bulk\",\n" +
+                    "  \"task\": \"refr\",\n" +
+                    "  \"start_immediate\": true\n" +
+                    "}","jzpttocrmprod"),
+    jzptdevnew("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzptdev11122/refresh",
+            "{\n" +
+                    "  \"source_loc\": \"jzptdev111\",\n" +
+                    "  \"target_loc\": \"jzptdev222\",\n" +
+                    "  \"granularity\": \"bulk\",\n" +
+                    "  \"task\": \"refr\",\n" +
+                    "  \"start_immediate\": true\n" +
+                    "}","jzptdevnew"),
+    JZPTPROD("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzptproda/refresh","{\n" +
+            "  \"source_loc\": \"jzptproda1\",\n" +
+            "  \"target_loc\": \"jzptproda2\",\n" +
             "  \"granularity\": \"bulk\",\n" +
             "  \"task\": \"refr\",\n" +
             "  \"start_immediate\": true\n" +
-            "}","JZPTPROD"),
-    JZPTDEV("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzptdev/refresh","{\n" +
-            "  \"source_loc\": \"source\",\n" +
-            "  \"target_loc\": \"target\",\n" +
-            "  \"granularity\": \"bulk\",\n" +
-            "  \"task\": \"refr\",\n" +
-            "  \"start_immediate\": true\n" +
-            "}","JZPTDEV");
+            "}","JZPTPROD");
+//    JZPTDEV("http://192.168.110.216:8080/api/v1/hubs/xschub/channels/jzptdev/refresh","{\n" +
+//            "  \"source_loc\": \"source\",\n" +
+//            "  \"target_loc\": \"target\",\n" +
+//            "  \"granularity\": \"bulk\",\n" +
+//            "  \"task\": \"refr\",\n" +
+//            "  \"start_immediate\": true\n" +
+//            "}","JZPTDEV");
 
     private String req;
     private String load;
